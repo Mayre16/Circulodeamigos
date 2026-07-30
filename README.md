@@ -1,35 +1,41 @@
-# Círculo de Amigos
+# Civis Consulting — subdominio oficial
 
-Subdominio de amigos de Acrópolis - sitio web oficial.
+Plataforma **Civis** de Nueva Acrópolis RD. Es la **única** app Civis activa del ecosistema.
 
 | | |
 |--|--|
-| **Código fuente** | `acropolis.org.do/circulodeamigos/` |
-| **URL pública** | https://circulodeamigos.acropolis.org.do |
-| **Local** | http://localhost:3000 |
+| **Código fuente (carpeta en tu PC)** | `acropolis.org.do/civis/` — solo nombre de carpeta del monorepo |
+| **URL pública (producción)** | **https://civis.acropolis.org.do** — subdominio propio, no es una ruta `/civis` del sitio principal |
+| **Preview cPanel** | `civis.acropolis.adesa.com.do` |
+| **Local** | http://localhost:3200 |
 
 ## Qué incluye
 
-- Información sobre el programa Círculo de Amigos
-- Formulario de inscripción
-- Sección "Quiénes Somos"
-- Integración con sistema OINADOM
+- Talleres corporativos (oferta formativa in company)
+- Alquiler de salones (Naco y Los Prados)
+- Quiénes somos, clientes y **equipo de entrenadores**
+- Formulario de inscripción / solicitud de propuesta
 
-## Stack técnico
+## Qué no es este sitio
 
-- Next.js 15 (App Router)
-- Tailwind CSS
-- TypeScript
+El proyecto Civis **duplicado** en `Cursor Projects/Civis` (con rutas `/corporativo`, `/cultura`, `/esfera`) fue retirado. **No** era el del subdominio.
 
 ## Desarrollo local
 
-```bash
-npm install
-npm run dev
+Desde la raíz del monorepo:
+
+```powershell
+cd "c:\Users\marth\Cursor Projects\acropolis.org.do"
+npm run dev:civis
 ```
 
-## Build para producción
+→ http://localhost:3200
 
-```bash
-npm run build
+## Build cPanel
+
+```powershell
+cd civis
+npm run build:cpanel
 ```
+
+Subir el contenido generado en `upload-cpanel-civis/` (o según `scripts/build-cpanel.mjs`).

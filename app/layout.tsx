@@ -11,7 +11,7 @@ import { CmsEditModeBootstrap } from "@/components/cms/CmsEditModeBootstrap";
 import { CirculoAmigosCmsEditProvider } from "@/components/cms/CirculoAmigosCmsEditContext";
 import { CmsProvider } from "@/lib/cms/provider";
 import { SITE_URL } from "@/lib/site-config";
-import { assetUrl } from "@/lib/asset-url";
+import { cmsFaviconUrl } from "@/lib/cms-favicon-url";
 
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: [{ url: assetUrl("/brand/icon-na.webp"), type: "image/webp" }],
-    shortcut: assetUrl("/brand/icon-na.webp"),
+    icon: [{ url: cmsFaviconUrl("circulodeamigos"), type: "image/webp" }],
+    shortcut: cmsFaviconUrl("circulodeamigos"),
   },
 };
 
