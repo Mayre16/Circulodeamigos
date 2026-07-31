@@ -96,6 +96,8 @@ export function CirculoAmigosLanding() {
                   fill
                   unoptimized
                   priority
+                  fetchPriority="high"
+                  decoding="sync"
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 640px"
                 />

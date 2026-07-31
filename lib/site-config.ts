@@ -57,6 +57,7 @@ export const HEADER_SUBMARCA_LOGO = {
   src: "/img/circulo-amigos/logo-header-cropped.webp",
   fallback: "/img/circulo-amigos/logo-header-cropped.png",
   alt: SUBMARCA_LOGO.alt,
-  width: 1856,
-  height: 244,
+  /** Intrinsic del WebP servido (≈2× el alto del header). */
+  width: 1217,
+  height: 160,
 } as const;

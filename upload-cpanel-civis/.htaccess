@@ -1,0 +1,23 @@
+# Sitio estático Next.js (output: export) — Apache / cPanel
+DirectoryIndex index.html index.htm
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # No reescribir assets estáticos (_next, archivos con extensión)
+  RewriteRule ^_next/ - [L]
+  RewriteRule \.(js|css|webp|png|jpg|jpeg|gif|svg|ico|woff2?|txt|json|xml|map)$ - [L]
+
+  # Forzar barra final solo en rutas de página (coherente con trailingSlash: true)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.+[^/])$ %{REQUEST_URI}/ [R=301,L]
+
+  # Servir index.html dentro de carpetas
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+?)/?$ $1/index.html [L]
+</IfModule>
+
+ErrorDocument 404 /404.html

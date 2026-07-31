@@ -69,6 +69,8 @@ export function CirculoBrandMark({
         width={logo.width}
         height={logo.height}
         priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
+        decoding={priority ? "sync" : "async"}
         unoptimized
         className={cn(
           "circulo-brand-mark block shrink-0",

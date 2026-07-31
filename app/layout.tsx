@@ -50,9 +50,17 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
+        <link
+          rel="preconnect"
+          href="https://editor.acropolis.adesa.com.do"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://editor.acropolis.adesa.com.do" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{if(window.parent!==window){document.documentElement.classList.add("cms-edit-embedded")}}catch(e){}})();`,
+            __html: `(function(){try{if(window.parent!==window){document.documentElement.classList.add("cms-edit-embedded")}}catch(e){}try{var api=${JSON.stringify(
+              process.env.NEXT_PUBLIC_CMS_URL?.replace(/\/$/, "") || "",
+            )};if(!api)return;var u=api+"/content/circulodeamigos/published";var slot=window.__circuloCmsPublished=window.__circuloCmsPublished||{};if(slot.promise)return;slot.promise=new Promise(function(resolve){function boot(){fetch(u,{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(d){slot.doc=d;resolve(d)}).catch(function(){resolve(null)})}if(window.requestIdleCallback)requestIdleCallback(boot,{timeout:2500});else setTimeout(boot,1)})}catch(e){}})();`,
           }}
         />
       </head>
@@ -61,9 +69,9 @@ export default function RootLayout({
       >
         <Suspense fallback={null}>
           <GoogleAnalytics />
+          <SiteAnalytics site="circulodeamigos" />
           <CmsEditModeBootstrap />
         </Suspense>
-        <SiteAnalytics site="circulodeamigos" />
         <CmsProvider>
           <Suspense fallback={null}>
             <CirculoAmigosCmsEditProvider>
